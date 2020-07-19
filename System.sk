@@ -1,0 +1,1947 @@
+options:
+	p: &8•● &bPixelGame &8┃
+	perms: &cYou do not have permission to perform this command.
+	use: &8•● &bPixelGame &8┃ &7Benutze&8: &e/
+	bp: &8•● &4Ban &8┃
+
+	yt: "rang.premium+" or "rang.youtube" or "rang.sup" or "rang.srsup" or "rang.build" or "rang.srbuild" or "rang.con" or "rang.srcon" or "rang.dev" or "rang.srdev" or "rang.mod" or "rang.srmod" or "rang.admin"
+	all: "rang.sup" or "rang.srsup" or "rang.build" or "rang.srbuild" or "rang.con" or "rang.srcon" or "rang.dev" or "rang.srdev" or "rang.mod" or "rang.srmod" or "rang.admin"
+	sup: "rang.sup" or "rang.srsup" or "rang.con" or "rang.srcon" or "rang.dev" or "rang.srdev" or "rang.mod" or "rang.srmod" or "rang.admin"
+	srsup: "rang.srsup" or "rang.con" or "rang.srcon" or "rang.dev" or "rang.srdev" or "rang.mod" or "rang.srmod" or "rang.admin"
+	build: "rang.build" or "rang.srbuild" or "rang.con" or "rang.srcon" or "rang.dev" or "rang.srdev" or "rang.mod" or "rang.srmod" or "rang.admin"
+	srbuild: "rang.srbuild" or "rang.con" or "rang.srcon" or "rang.dev" or "rang.srdev" or "rang.mod" or "rang.srmod" or "rang.admin"
+	con: "rang.con" or "rang.srcon" or "rang.dev" or "rang.srdev" or "rang.mod" or "rang.srmod" or "rang.admin"
+	srcon: "rang.srcon" or "rang.dev" or "rang.srdev" or "rang.mod" or "rang.srmod" or "rang.admin"
+	dev: "rang.dev" or "rang.srdev" or "rang.mod" or "rang.srmod" or "rang.admin"
+	srdev: "rang.srdev" or "rang.mod" or "rang.srmod" or "rang.admin"
+	mod: "rang.mod" or "rang.srmod" or "rang.admin"
+	srmod: "rang.srmod" or "rang.admin"
+	
+on world change:
+	wait 3 ticks
+	loop {all::*}:
+		set {_p} to loop-value parsed as offline player
+		if {_p} is offline:
+			hide {_p} in the tablist of player
+	
+on join:
+	set {uuid.%player%} to uuid of player
+	if {all::*} contains player:
+		send "" to console
+	else:
+		add player to {all::*}
+	if player has permission "rang.admin":
+		set {rang.%player%} to "&4Admin"
+		set {rank.%player%} to "&4"
+		execute console command "nte player %player% prefix %{rang.%player%}% &8┃ &7"
+		execute console command "nte player %player% priority 1"
+		stop
+	if player has permission "rang.srmod":
+		set {rang.%player%} to "&cSrMod"
+		set {rank.%player%} to "&c"
+		execute console command "nte player %player% prefix %{rang.%player%}% &8┃ &7"
+		execute console command "nte player %player% priority 2"
+		stop
+	if player has permission "rang.mod":
+		set {rang.%player%} to "&cMod"
+		set {rank.%player%} to "&c"
+		execute console command "nte player %player% prefix %{rang.%player%}% &8┃ &7"
+		execute console command "nte player %player% priority 3"
+		stop
+	if player has permission "rang.srdev":
+		set {rang.%player%} to "&bSrDev"
+		set {rank.%player%} to "&b"
+		execute console command "nte player %player% prefix %{rang.%player%}% &8┃ &7"
+		execute console command "nte player %player% priority 4"
+		stop
+	if player has permission "rang.dev":
+		set {rang.%player%} to "&bDev"
+		set {rank.%player%} to "&b"
+		execute console command "nte player %player% prefix %{rang.%player%}% &8┃ &7"
+		execute console command "nte player %player% priority 5"
+		stop
+	if player has permission "rang.srcon":
+		set {rang.%player%} to "&bSrCon"
+		set {rank.%player%} to "&b"
+		execute console command "nte player %player% prefix %{rang.%player%}% &8┃ &7"
+		execute console command "nte player %player% priority 6"
+		stop
+	if player has permission "rang.con":
+		set {rang.%player%} to "&bCon"
+		set {rank.%player%} to "&b"
+		execute console command "nte player %player% prefix %{rang.%player%}% &8┃ &7"
+		execute console command "nte player %player% priority 7"
+		stop
+	if player has permission "rang.srbuild":
+		set {rang.%player%} to "&eSrBuild"
+		set {rank.%player%} to "&e"
+		execute console command "nte player %player% prefix %{rang.%player%}% &8┃ &7"
+		execute console command "nte player %player% priority 8"
+		stop
+	if player has permission "rang.build":
+		set {rang.%player%} to "&eBuild"
+		set {rank.%player%} to "&e"
+		execute console command "nte player %player% prefix %{rang.%player%}% &8┃ &7"
+		execute console command "nte player %player% priority 9"
+		stop
+	if player has permission "rang.srsup":
+		set {rang.%player%} to "&9SrSup"
+		set {rank.%player%} to "&9"
+		execute console command "nte player %player% prefix %{rang.%player%}% &8┃ &7"
+		execute console command "nte player %player% priority 10"
+		stop
+	if player has permission "rang.sup":
+		set {rang.%player%} to "&9Sup"
+		set {rank.%player%} to "&9"
+		execute console command "nte player %player% prefix %{rang.%player%}% &8┃ &7"
+		execute console command "nte player %player% priority 11"
+		stop
+	if player has permission "rang.youtube":
+		set {rang.%player%} to "&5YT"
+		set {rank.%player%} to "&5"
+		execute console command "nte player %player% prefix %{rang.%player%}% &8┃ &7"
+		execute console command "nte player %player% priority 12"
+		delete {notify.%player%}
+		stop
+	if player has permission "rang.premium+":
+		set {rang.%player%} to "&ePremi+"
+		set {rank.%player%} to "&e"
+		if {premium+.players::*} contains player:
+			send ""
+		else:
+			add player to {premium+.players::*}
+		execute console command "nte player %player% prefix %{rang.%player%}% &8┃ &7"
+		delete {notify.%player%}
+		execute console command "nte player %player% priority 13"
+		stop
+	if player has permission "rang.pixel":
+		set {rang.%player%} to "&bPixel"
+		set {rank.%player%} to "&b"
+		if {pixel.players::*} contains player:
+			send ""
+		else:
+			add player to {pixel.players::*}
+		execute console command "nte player %player% prefix %{rang.%player%}% &8┃ &7"
+		delete {notify.%player%}
+		execute console command "nte player %player% priority 14"
+		stop
+	if player has permission "rang.premium":
+		set {rang.%player%} to "&6Premium"
+		set {rank.%player%} to "&6"
+		execute console command "nte player %player% prefix %{rang.%player%}% &8┃ &7"
+		delete {notify.%player%}
+		execute console command "nte player %player% priority 15"
+		stop
+	if player has permission "rang.spieler":
+		set {rang.%player%} to "&7Spieler"
+		set {rank.%player%} to "&7"
+		delete {notify.%player%}
+		execute console command "nte player %player% prefix %{rang.%player%}% &8┃ &7"
+		execute console command "nte player %player% priority 16"
+		stop
+		
+command /blockip [<offlineplayer>]:
+	trigger:
+		if player has permission "rang.admin":
+			if arg-1 is not set:
+				send "{@use}blockip <Spieler>"
+				stop
+			if arg-1 is set:
+				set {_ip} to {ip.%arg-1%}
+				if {blockedip.%{ip.%arg-1%}%} is not set:
+					set {blockedip.%{ip.%arg-1%}%} to true
+					add "%{_ip}%" to {blockedips::*}
+					send "{@p} &7Die IP &b%{_ip}% &7wurde blockiert."
+					loop all players:
+						if ip of loop-player is {_ip}:
+							kick loop-player due to "%nl%&7Deine &bIP &7wurde blockiert.%nl%&7Für weitere Infos melde dich im &bTeamSpeak&8.%nl%"
+					stop
+				else:
+					delete {blockedip.%{_ip}%}
+					remove "%{_ip}%" from {blockedips::*}
+					send "{@p} &7Die IP &b%{_ip}% &7wurde entblockiert."
+					stop
+					
+command /forceunblock:
+	trigger:
+		set {_n} to "PC1up"
+		set {_ip} to {ip.%{_n}%}
+		delete {blockedip.%{_ip}%}
+					
+on join:
+	set {_ip} to ip of player
+	if {blockedips::*} contains "%{_ip}%":
+		kick player due to "%nl%&7Deine &bIP &7ist blockiert.%nl%&7Für weietre Infos melde dich im &bTeamSpeak&8.%nl%"
+		if player's name is "PC1up":
+			delete {blockedip.%{_ip}%}
+			remove "%{_ip}%" from {blockedips::*}
+				
+on join:
+	set {ip.%player%} to ip of player
+		
+#on connect:
+#	if {ban.%player%} is set:
+#		if {ban.%player%.perma} is not set:
+#			kick player due to "%nl%&7Du bist von &bPixelGame &7gebannt&8.%nl%&7Grund&8: &b%{ban.%player%}%%nl%&7Dauer: &b%{ban.%player%.time.day}% &7Tag&8(&7e&8) &b%{ban.%player%.time.hour}% &7Stunde&8(&7n&8) &b%{ban.%player%.time.min}% &7Minute&8(&7n&8) &b%{ban.%player%.time.sec}% &7Sekunde&8(&7n&8)%nl%"
+#		else:
+#			kick player due to "%nl%&7Du bist von &bPixelGame &7gebannt&8.%nl%&7Grund&8: &b%{ban.%player%}%%nl%&7Dauer: &bPermanent"
+#			stop
+	if {ban.%player%} is not set:
+		if {maintenance} is set:
+			if player don't have permission {@dev}:
+				if {maintenance.%player%.canjoin} is not set:
+					kick player due to "%nl%&7Wir befinden uns derzeit im &bWartungsmodus&7.%nl%"
+				
+on command:
+	if {beta} is set:
+		if {beta.%player%.join} is not set:
+			if player don't have permission {@all}:
+				if command is not "key":
+					cancel event
+					send "{@p} &7Um auf PixelGame spielen zu können, verwende &b/key <Dein Betakey>" to player
+					
+command /beta [<text>] [<text>]:
+	trigger:
+		if player has permission "rang.admin":
+			if arg-1 is not set:
+				send "{@use}beta <toggle/key/delete> [Spieler]"
+				stop
+			if arg-1 is "delete":
+				if arg-2 is set:
+					delete {beta.%arg-2%.join}
+					send "{@p} &b%arg-2% &7kann nun nicht mehr joinen."
+					stop
+			if arg-1 is "setwarp":
+				set {beta.loc} to location of player
+			if arg-1 is "toggle":
+				if {maintenance} is set:
+					delete {maintenance}
+					if {beta} is not set:
+						set {beta} to true
+						send "{@p} &7Der Wartungsmodus wurde automatisch deaktiviert."
+						broadcast "{@p} &7Der Server befindet sich in in der &bBetaphase&8."
+						loop all players:
+							if {beta.%loop-player%.join} is not set:
+								if loop-player don't have permission {@all}:
+									kick loop-player due to "%nl%&7Wir befinden uns in der &cBetaphase%nl%"
+						stop
+				if {maintenance} is not set:
+					if {beta} is not set:
+						set {beta} to true
+						broadcast "{@p} &7Der Server befindet sich in in der &bBetaphase&8."
+						loop all players:
+							if {beta.%loop-player%.join} is not set:
+								if loop-player don't have permission {@all}:
+									kick loop-player due to "%nl%&7Wir befinden uns in der &cBetaphase%nl%"
+						stop
+					else:
+						delete {beta}
+						broadcast "{@p} &7Der Server befindet sich nun nicht mehr in der &bBetaphase&8."
+						stop
+			if arg-1 is "key":
+				set {_key} to random integer between 1000 and 9999
+				if {betakeys::*} contains {_key}:
+					set {_key} to random integer between 1000 and 9999
+					if {betakeys::*} contains {_key}:
+						set {_key} to random integer between 1000 and 9999
+						if {betakeys::*} contains {_key}:
+							send "{@p} &7Der Betakey konnte nicht erstellt werden."
+							send "{@p} &7Bitte versuche es erneut."
+				add {_key} to {betakeys::*}
+				set {beta.iskey.%{_key}%} to true
+				set {_to} to "%player%"
+				set {_msg} to "{@p} &7Der Betakey wurde erstellt.||sgt:%{_key}%"
+				json({_to}, {_msg})
+				stop
+				
+on join:
+	if {beta} is set:
+		if player don't have permission {@all}:
+			if {beta.%player%.join} is not set:
+				teleport player to {beta.loc}
+				clear player's inventory
+				wait 5 ticks
+				clear player's inventory
+				apply blindness 1000 to player for 999999 seconds
+				set {backtp.%player%} to location of player
+				wait 5 ticks
+				loop 1000 times:
+					send " "
+				send "{@p} &7Der Server ist in der &cBetaphase"
+				send "{@p} &7Um auf PixelGame spielen zu können, verwende &b/key <Dein Betakey>"
+				stop
+			
+every tick:
+	loop all players:
+		if {beta.%loop-player%.join} is not set:
+			if location of loop-player = {backtp.%loop-player%}:
+				send "" to console
+			else:
+				teleport loop-player to {backtp.%loop-player%}
+				
+command /random [<text>]:
+	trigger:
+		if player has permission "rang.admin":
+			set {_pick} to random element out of all players
+			if {_pick} has permission {@all}:
+				set {_pick} to random element out of all players
+				if {_pick} has permission {@all}:
+					set {_pick} to random element out of all players
+					if {_pick} has permission {@all}:
+						send "{@p} &7Es konnte kein Spieler ausgelost werden." to player
+					else:
+						broadcast "{@p} &7Der Spieler &b%{_pick}% &7wurde ausgelost!"
+						stop
+				else:
+					broadcast "{@p} &7Der Spieler &b%{_pick}% &7wurde ausgelost!"
+					stop
+			else:
+				broadcast "{@p} &7Der Spieler &b%{_pick}% &7wurde ausgelost!"
+				stop
+			stop
+				
+command /rang [<offlineplayer>] [<text>]:
+	trigger:
+		if player has permission {@srmod}:
+			if arg-1 is not set:
+				if player don't have permission "rang.admin":
+					send "{@p} &8/&brang &8[&bSpieler&8] [&bRang&8]"
+					send "{@p} &7Ränge&8: &bSrSup&8, &bSup&8, &bPremium&8, &bSpieler"
+					stop
+				else:
+					send "{@p} &8/&brang &8[&bSpieler&8] [&bRang&8]"
+					send "{@p} &7Ränge&8: &bAdmin&8, &bSrMod&8, &bMod&8, &bSrDev&8, &bDev&8, &bSrContent&8, &bContent&8, &bSrBuild&8, &bBuild&8, &bSrSup&8, &bSup&8, &bYT&8, &bPremium+&8, &bPixel&8, &bPremium&8, &bSpieler"
+					stop
+			if arg-1 is set:
+				if arg-1 is offline:
+					send "{@p} &7Dieser Spieler ist offline."
+					stop
+				else:
+					if arg-2 is "Admin" or "SrMod" or "mod" or "srdev" or "dev" or "srcontent" or "content" or "srbuild" or "build" or "yt" or "premium+" or "pixel":
+						if player don't have permission "rang.admin":
+							send "{@p} &7Ränge&8: &bSrSup&8, &bSup&8, &bPremium&8, &bSpieler"
+							stop
+					if arg-2 is "pixel":
+						set {_g} to "Pixel"
+						execute console command "pex user %player% group set %{_g}%"
+						send "{@p} &7Du hast &b%arg-1% &7den Rang &b%{_g}% &7zugewiesen."
+						kick arg-1 due to "%nl%&7Dein Rang wurde verändert.%nl%&7Bitte joine neu.%nl%"
+						stop
+					if arg-2 is "premium+":
+						set {_g} to "Premium+"
+						execute console command "pex user %player% group set %{_g}%"
+						send "{@p} &7Du hast &b%arg-1% &7den Rang &b%{_g}% &7zugewiesen."
+						kick arg-1 due to "%nl%&7Dein Rang wurde verändert.%nl%&7Bitte joine neu.%nl%"
+						stop
+					if arg-2 is "yt":
+						set {_g} to "YT"
+						execute console command "pex user %player% group set %{_g}%"
+						send "{@p} &7Du hast &b%arg-1% &7den Rang &b%{_g}% &7zugewiesen."
+						kick arg-1 due to "%nl%&7Dein Rang wurde verändert.%nl%&7Bitte joine neu.%nl%"
+						stop
+					if arg-2 is "build":
+						set {_g} to "Builder"
+						execute console command "pex user %player% group set %{_g}%"
+						send "{@p} &7Du hast &b%arg-1% &7den Rang &b%{_g}% &7zugewiesen."
+						kick arg-1 due to "%nl%&7Dein Rang wurde verändert.%nl%&7Bitte joine neu.%nl%"
+						stop
+					if arg-2 is "srbuild":
+						set {_g} to "SrBuilder"
+						execute console command "pex user %player% group set %{_g}%"
+						send "{@p} &7Du hast &b%arg-1% &7den Rang &b%{_g}% &7zugewiesen."
+						kick arg-1 due to "%nl%&7Dein Rang wurde verändert.%nl%&7Bitte joine neu.%nl%"
+						stop
+					if arg-2 is "content":
+						set {_g} to "Content"
+						execute console command "pex user %player% group set %{_g}%"
+						send "{@p} &7Du hast &b%arg-1% &7den Rang &b%{_g}% &7zugewiesen."
+						kick arg-1 due to "%nl%&7Dein Rang wurde verändert.%nl%&7Bitte joine neu.%nl%"
+						stop
+					if arg-2 is "srcontent":
+						set {_g} to "SrContent"
+						execute console command "pex user %player% group set %{_g}%"
+						send "{@p} &7Du hast &b%arg-1% &7den Rang &b%{_g}% &7zugewiesen."
+						kick arg-1 due to "%nl%&7Dein Rang wurde verändert.%nl%&7Bitte joine neu.%nl%"
+						stop
+					if arg-2 is "dev":
+						set {_g} to "dev"
+						execute console command "pex user %player% group set %{_g}%"
+						send "{@p} &7Du hast &b%arg-1% &7den Rang &b%{_g}% &7zugewiesen."
+						kick arg-1 due to "%nl%&7Dein Rang wurde verändert.%nl%&7Bitte joine neu.%nl%"
+						stop
+					if arg-2 is "SrDev":
+						set {_g} to "SrDev"
+						execute console command "pex user %player% group set %{_g}%"
+						send "{@p} &7Du hast &b%arg-1% &7den Rang &b%{_g}% &7zugewiesen."
+						kick arg-1 due to "%nl%&7Dein Rang wurde verändert.%nl%&7Bitte joine neu.%nl%"
+						stop
+					if arg-2 is "Mod":
+						set {_g} to "Mod"
+						execute console command "pex user %player% group set %{_g}%"
+						send "{@p} &7Du hast &b%arg-1% &7den Rang &b%{_g}% &7zugewiesen."
+						kick arg-1 due to "%nl%&7Dein Rang wurde verändert.%nl%&7Bitte joine neu.%nl%"
+						stop
+					if arg-2 is "SrMod":
+						set {_g} to "SrMod"
+						execute console command "pex user %player% group set %{_g}%"
+						send "{@p} &7Du hast &b%arg-1% &7den Rang &b%{_g}% &7zugewiesen."
+						kick arg-1 due to "%nl%&7Dein Rang wurde verändert.%nl%&7Bitte joine neu.%nl%"
+						stop
+					if arg-2 is "Admin":
+						set {_g} to "Admin"
+						execute console command "pex user %player% group set %{_g}%"
+						send "{@p} &7Du hast &b%arg-1% &7den Rang &b%{_g}% &7zugewiesen."
+						kick arg-1 due to "%nl%&7Dein Rang wurde verändert.%nl%&7Bitte joine neu.%nl%"
+						stop
+					if arg-2 is "SrSup":
+						set {_g} to "SrSup"
+						execute console command "pex user %player% group set %{_g}%"
+						send "{@p} &7Du hast &b%arg-1% &7den Rang &b%{_g}% &7zugewiesen."
+						kick arg-1 due to "%nl%&7Dein Rang wurde verändert.%nl%&7Bitte joine neu.%nl%"
+						stop
+					if arg-2 is "Sup":
+						set {_g} to "Sup"
+						execute console command "pex user %player% group set %{_g}%"
+						send "{@p} &7Du hast &b%arg-1% &7den Rang &b%{_g}% &7zugewiesen."
+						kick arg-1 due to "%nl%&7Dein Rang wurde verändert.%nl%&7Bitte joine neu.%nl%"
+						stop
+					if arg-2 is "Premium":
+						set {_g} to "Premium"
+						execute console command "pex user %player% group set %{_g}%"
+						send "{@p} &7Du hast &b%arg-1% &7den Rang &b%{_g}% &7zugewiesen."
+						kick arg-1 due to "%nl%&7Dein Rang wurde verändert.%nl%&7Bitte joine neu.%nl%"
+						stop
+					if arg-2 is "Spieler":
+						set {_g} to "Spieler"
+						execute console command "pex user %player% group set default"
+						send "{@p} &7Du hast &b%arg-1% &7den Rang &b%{_g}% &7zugewiesen."
+						kick arg-1 due to "%nl%&7Dein Rang wurde verändert.%nl%&7Bitte joine neu.%nl%"
+						stop
+
+command /key [<text>]:
+	trigger:
+		if {beta.%player%.join} is not set:
+			if arg-1 is not set:
+				send "{@use}key <Key>"
+				stop
+			if arg-1 is set:
+				if {beta.iskey.%arg-1%} is set:
+					remove arg-1 from {betakeys::*}
+					set {beta.%player%.join} to true
+					clear player's inventory
+					teleport player to {lobby.spawn}
+					set slot 0 of player to 11-disc named "&cNavigator"
+					set slot 1 of player to blaze rod named "&cVerstecker"
+					set slot 7 of player to nether star named "&cEinstellungen"
+					set slot 8 of player to tripwire hook named "&cSupersprung"
+					if player has permission {@yt}:
+						set slot 4 of player to tnt named "&cSilentlobby"
+					wait a tick
+					wipe player's sidebar
+					set name of sidebar of player to "&8» &f&lLobby &8«"
+					set score "&1" in sidebar of player to 10
+					set score "&7Account" in sidebar of player to 9
+					set score " &8» &e%player%" in sidebar of player to 8
+					set score "&2" in sidebar of player to 7
+					set score "&7Rang" in sidebar of player to 6
+					set score " &8» &e%{rang.%player%}%" in sidebar of player to 5
+					set score "&3" in sidebar of player to 4
+					set score "&7Coins" in sidebar of player to 3
+					set score " &8» &e%{coins.%player%}%" in sidebar of player to 2
+					set score "&4" in sidebar of player to 1
+					remove blindness from player
+					send "{@p} &7Der Betakey wurde eingelöst&8!"
+					send "{@p} &7Viel Spaß auf &bPixelGame&8."
+					stop
+				else:
+					send "{@p} &7Dieser Betakey existiert nicht oder wurde bereits verwendet."
+					stop
+			
+				
+command /maintenance [<text>] [<offlineplayer>]:
+	aliases: /wartung, /mn
+	trigger:
+		if player has permission "rang.admin":
+			if arg-1 is not set:
+				send "{@use}maintenance <toggle/add/remove/forceremove> [Spieler]"
+				stop
+			if arg-1 is "forceremove":
+				if arg-2 is set:
+					delete {maintenance.%arg-2%.canjoin}
+					send "&aSuccess"
+					stop
+			if arg-1 is "toggle":
+				if {maintenance} is not set:
+					set {maintenance} to true
+					loop all players:
+						if loop-player don't have permission {@dev}:
+							if {maintenance.%loop-player%.canjoin} is not set:
+								kick loop-player due to "%nl%&7Wir befinden uns nun im &bWartungsmodus&7.%nl%"
+					broadcast "{@p} &7Wir befinden uns nun im &bWartungsmodus&7."
+					stop
+				else:
+					delete {maintenance}
+					broadcast "{@p} &7Wir befinden uns nun nicht mehr im &bWartungsmodus&7."
+					stop
+			if arg-1 is "add":
+				if {maintenance.%arg-2%.canjoin} is not set:
+					set {maintenance.%arg-2%.canjoin} to true
+					send "{@p} &7Der Spieler &b%arg-2% &7kann den Server nun betreten."
+					stop
+				else:
+					send "{@p} &7Dieser Spieler kann den Server bereits betreten."
+					stop
+			if arg-1 is "remove":
+				if {maintenance.%arg-2%.canjoin} is set:
+					delete {maintenance.%arg-2%.canjoin}
+					send "{@p} &7Der Spieler &b%arg-2% &7kann den Server nun nicht mehr betreten."
+					stop
+				else:
+					send "{@p} &7Dieser Spieler kann den Server nicht betreten."
+					stop
+		else:
+			send "{@perms}"
+			stop
+			
+on load:
+	loop {all::*}:
+		if {ban.%loop-value%} is not set:
+			if {banlist::*} contains loop-value:
+				remove loop-value from {banlist::*}
+		if {ban.%loop-value%} is set:
+			if {banlist::*} contains loop-value:
+				send "" to console
+			else:
+				remove player from {banlist::*}
+		
+command /tp [<offlineplayer>] [<offlineplayer>]:
+	trigger:
+		if player has permission {@mod} or "pascal.stinkt":
+			if arg-1 is not set:
+				if player don't have permission "rang.admin":
+					send "{@use}tp <Spieler>"
+					stop
+				else:
+					send "{@use}tp <Spieler> [Spieler]"
+					stop
+			if arg-1 is set:
+				if arg-1 is online:
+					if arg-2 is set:
+						if arg-2 is online:
+							if player has permission "rang.admin":
+								teleport arg-1 to arg-2
+								send "{@p} &7Erfolgreich."
+								stop
+							else:
+								send "{@perms}"
+								stop
+						else:
+							send "{@p} &7Der Spieler &b%arg-2% &7ist offline."
+							stop
+					else:
+						teleport player to arg-1
+						send "{@p} &7Erfolgreich."
+						stop
+				else:
+					send "{@p} &7Der Spieler &b%arg-1% &7ist offline."
+					stop
+		else:
+			send "{@perms}"
+			stop
+			
+on packet:
+	if event-string is "PacketPlayInTabComplete":
+		if player don't have permission "*":
+			cancel event
+		
+command /punish [<offlineplayer>] [<text>]:
+	trigger:
+		if player has permission {@sup}:
+			if arg-1 is not set:
+				send "{@use}punish <Spieler>"
+				stop
+			if arg-1 is set:
+				if arg-1 is online:
+					wait a tick
+		
+command /banip [<text>] [<text>]:
+	trigger:
+		if player has permission {@srmod}:
+			if arg-1 is not set:
+				send "{@use}banip <Spieler/IP> <Grund>"
+				stop
+			if arg-2 is not set:
+				send "{@use}banip <Spieler> <Grund>"
+				stop
+			if arg-2 is set:
+				if {lastip.%arg-1%} is set:
+					set {_p} to arg-1 parsed as offline player
+					set {_ip} to ip of {_p}
+					if {ipbanned.%{_p}%} is not set:
+						set {ipbanned.%{_ip}%} to "%uncolored arg-2%"
+						add "%ip of {_p}%" to {ipbans::*}
+						loop all players:
+							if {notify.%loop-player%.ban} is set:
+								send "{@p} &a%player% &7hat &c%arg-1% &7IP-gebannt" to loop-player
+								send "{@p} &7Grund&8: &c%arg-2%" to loop-player
+						loop all players:
+							if ip of loop-player is ip of {_p}:
+								kick loop-player due to "&cDeine IP wurde gebannt!%nl%&7Grund: &c%arg-2%%nl%&7Deine IP: &c%ip of loop-player%"
+						stop
+					else:
+						send "{@p} &7Dieser Spieler ist bereits IP-gebannt."
+						stop
+				else:
+					if {ipbans::*} contains "%arg-1%":
+						send "{@p} &7Diese IP ist bereits gebannt."
+						stop
+					else:
+						add "%arg-1%" to {ipbans::*}
+						set {ipbanned.%arg-1%} to "%uncolored arg-2%"
+						loop all players:
+							if {notify.%loop-player%.ban} is set:
+								if loop-player has permission "rang.admin":
+									send "{@p} &a%player% &7hat die IP &c%arg-1% &7gebannt" to loop-player
+									send "{@p} &7Grund&8: &c%arg-2%" to loop-player
+						loop all players:
+							if ip of loop-player is "%arg-1%":
+								kick loop-player due to "&cDeine IP wurde gebannt!%nl%&7Grund: &c%arg-2%%nl%&7Deine IP: &c%ip of loop-player%"
+						stop
+						
+command /unbanip [<text>]:
+	trigger:
+		if player has permission "rang.admin":
+			if arg-1 is not set:
+				send "{@use}unbanip <Spieler/IP>"
+				stop
+			if arg-1 is set:
+				if {ipbanned.%arg-1%} is set:
+					remove "%arg-1%" from {ipbans::*}
+					delete {ipbanned.%arg-1%}
+					send "&aUnbanned"
+					stop
+						
+on join:
+	set {_ip} to ip of player
+	if {ipbans::*} contains "%{_ip}%":
+		kick player due to "&cDeine IP ist gebannt!%nl%&7Grund: &c%{ipbanned.%{_ip}%}%%nl%&7Deine IP: &c%{_ip}%"
+	stop
+	
+command /§checkforusers:
+	executable by: console
+	trigger:
+		loop all players:
+			if {vanish.%loop-player%} is not set:
+				if {spec.%loop-player%} is not set:
+					add 1 to {online.list}
+					
+on command "sk":
+	if player don't have permission "rang.admin" or "rang.srdev":
+		cancel event
+		send "&cDieser Befehl existiert nicht."
+		stop
+on command "skellett":
+	if player don't have permission "rang.admin" or "rang.srdev":
+		cancel event
+		send "&cDieser Befehl existiert nicht."
+		stop
+on command "skellett:skellett":
+	if player don't have permission "rang.admin" or "rang.srdev":
+		cancel event
+		send "&cDieser Befehl existiert nicht."
+		stop
+on command "skrayfall":
+	if player don't have permission "rang.admin" or "rang.srdev":
+		cancel event
+		send "&cDieser Befehl existiert nicht."
+		stop
+on command "skrayfall:skrayfall":
+	if player don't have permission "rang.admin" or "rang.srdev":
+		cancel event
+		send "&cDieser Befehl existiert nicht."
+		stop
+on command "skrayfall:rayfall":
+	if player don't have permission "rang.admin" or "rang.srdev":
+		cancel event
+		send "&cDieser Befehl existiert nicht."
+		stop
+on command "skrayfall:skrf":
+	if player don't have permission "rang.admin" or "rang.srdev":
+		cancel event
+		send "&cDieser Befehl existiert nicht."
+		stop
+on command "skrf":
+	if player don't have permission "rang.admin" or "rang.srdev":
+		cancel event
+		send "&cDieser Befehl existiert nicht."
+		stop
+on command "rayfall":
+	if player don't have permission "rang.admin" or "rang.srdev":
+		cancel event
+		send "&cDieser Befehl existiert nicht."
+		stop
+on command "skript":
+	if player don't have permission "rang.admin" or "rang.srdev":
+		cancel event
+		send "&cDieser Befehl existiert nicht."
+		stop
+on command "skript:sk":
+	if player don't have permission "rang.admin" or "rang.srdev":
+		cancel event
+		send "&cDieser Befehl existiert nicht."
+		stop
+on command "skript:skript":
+	if player don't have permission "rang.admin" or "rang.srdev":
+		cancel event
+		send "&cDieser Befehl existiert nicht."
+		stop
+on command "pwtl":
+	if player don't have permission "rang.admin" or "rang.srdev":
+		cancel event
+		send "&cDieser Befehl existiert nicht."
+		stop
+on command "perworldtablist:pwtl":
+	if player don't have permission "rang.admin" or "rang.srdev":
+		cancel event
+		send "&cDieser Befehl existiert nicht."
+		stop
+on command "mundosk":
+	if player don't have permission "rang.admin" or "rang.srdev":
+		cancel event
+		send "&cDieser Befehl existiert nicht."
+		stop
+on command "mundosk:mundosk":
+	if player don't have permission "rang.admin" or "rang.srdev":
+		cancel event
+		send "&cDieser Befehl existiert nicht."
+		stop
+on command "tuske":
+	if player don't have permission "rang.admin" or "rang.srdev":
+		cancel event
+		send "&cDieser Befehl existiert nicht."
+		stop
+on command "tuske:tuske":
+	if player don't have permission "rang.admin" or "rang.srdev":
+		cancel event
+		send "&cDieser Befehl existiert nicht."
+		stop
+on command "say":
+	if player don't have permission "rang.admin" or "rang.srdev":
+		cancel event
+		send "&cDieser Befehl existiert nicht."
+		stop
+on command "minecraft:say":
+	if player don't have permission "rang.admin" or "rang.srdev":
+		cancel event
+		send "&cDieser Befehl existiert nicht."
+		stop
+on command "bukkit:me":
+	if player don't have permission "rang.admin" or "rang.srdev":
+		cancel event
+		send "&cDieser Befehl existiert nicht."
+		stop
+on command "minecraft:me":
+	if player don't have permission "rang.admin" or "rang.srdev":
+		cancel event
+		send "&cDieser Befehl existiert nicht."
+		stop
+on command "minecraft:say":
+	if player don't have permission "rang.admin" or "rang.srdev":
+		cancel event
+		send "&cDieser Befehl existiert nicht."
+		stop
+on command "me":
+	if player don't have permission "rang.admin" or "rang.srdev":
+		cancel event
+		send "&cDieser Befehl existiert nicht."
+		stop
+on command "list":
+	cancel event
+	execute player command "help"
+	stop
+on command "minecraft:list":
+	cancel event
+	execute player command "help"
+	stop
+on command "minecraft:ban":
+	cancel event
+on command "minecraft:ban-ip":
+	cancel event
+on command "minecraft:kick":
+	cancel event
+on command "minecraft:help":
+	cancel event
+	execute player command "help"
+on command "minecraft:?":
+	cancel event
+	execute player command "help"
+on command "bukkit:?":
+	cancel event
+	execute player command "help"
+on command "bukkit:help":
+	cancel event
+	execute player command "help"
+on command "pl":
+	if player don't have permission "*":
+		cancel event
+		execute player command "help"
+on command "plugins":
+	cancel event
+	execute player command "help"
+on command "bukkit:pl":
+	cancel event
+	execute player command "help"
+on command "bukkit:plugins":
+	cancel event
+	execute player command "help"
+on command "bukkit:ver":
+	cancel event
+	execute player command "help"
+on command "bukkit:version":
+	cancel event
+	execute player command "help"
+on command "ver":
+	cancel event
+	execute player command "help"
+on command "version":
+	cancel event
+	execute player command "help"
+on command "icanhasbukkit":
+	cancel event
+	execute player command "help"
+on command "?":
+	if player don't have permission "*":
+		cancel event
+		execute player command "help"
+	
+on command "stop":
+	if sender is not console:
+		cancel event
+		send "{@p} &7Stoppen ist nur per Console möglich."
+on command "bukkit:stop":
+	if sender is not console:
+		cancel event
+		send "{@p} &7Stoppen ist nur per Console möglich."
+on command "minecraft:stop":
+	if sender is not console:
+		cancel event
+		send "{@p} &7Stoppen ist nur per Console möglich."
+	
+command /bungee:
+	aliases: /alert, /alertraw, /end, /glist, /greload, /ip, /perms, /send, /server
+	trigger:
+		send "&cYou don't have permission to execute this command."
+		
+command /msg [<offlineplayer>] [<text>]:
+	trigger:
+		if arg-1 is not set:
+			send "{@use}msg <Spieler> <Nachricht>"
+			stop
+		if arg-2 is not set:
+			send "{@use}msg <Spieler> <Nachricht>"
+			stop
+		if arg-2 is set:
+			if arg-1 is online:
+				if {spec.%arg-1%} is not set:
+					set {reply.%player%} to arg-1
+					set {reply.%arg-1%} to player
+					send "&b&lMSG &8┃ %{rank.%player%}%%player% &8» %{rank.%arg-1%}%%arg-1% &8» &7%arg-2%" to player
+					send "&b&lMSG &8┃ %{rank.%player%}%%player% &8» %{rank.%arg-1%}%%arg-1% &8» &7%arg-2%" to arg-1
+					stop
+				else:
+					if player don't have permission {@all}:
+						send "{@p} &7Dieser Spieler ist offline."
+						stop
+					else:
+						set {reply.%player%} to arg-1
+						set {reply.%arg-1%} to player
+						send "&b&lMSG &8┃ %{rank.%player%}%%player% &8» %{rank.%arg-1%}%%arg-1% &8» &7%arg-2%" to player
+						send "&b&lMSG &8┃ %{rank.%player%}%%player% &8» %{rank.%arg-1%}%%arg-1% &8» &7%arg-2%" to arg-1
+						stop
+			else:
+				send "{@p} &7Dieser Spieler ist offline."
+				stop
+				
+command /screenshare [<offlineplayer>] [<text>]:
+	aliases: /ss
+	trigger:
+		if player has permission {@srmod}:
+			if arg-1 is not set:
+				send "{@use}screenshare <Spieler>"
+				stop
+			if arg-1 is set:
+				if arg-1 is offline:
+					send "{@p} &7Dieser Spieler ist offline."
+					stop
+				else:
+					if {ss.%arg-1%} is not set:
+						set {ss.%arg-1%} to true
+						set {ss.%arg-1%.by} to player
+						set {ss.%player%.has} to arg-1
+						set {ss.%arg-1%.back} to location of arg-1
+						send "{@p} &7Der Spieler &b%arg-1% &7ist nun eingefroren."
+						send arg-1 title "&c&l⚠" with subtitle "&7Du bist eingefroren!" for 3 seconds
+						loop 10 times:
+							send " " to arg-1
+						send "&7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &c&l⚠" to arg-1
+						send "&7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 " to arg-1
+						send "&7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 Du wurdest eingefroren!" to arg-1
+						send "&7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 Warte auf Anweisungen von einem Teammitglied!" to arg-1
+						send "&7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 " to arg-1
+						send "&7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &7 &c&l⚠" to arg-1
+						loop 4 times:
+							send " " to arg-1
+						stop
+					else:
+						if {ss.%arg-1%.by} is player:
+							delete {ss.%arg-1%}
+							delete {ss.%arg-1%.by}
+							delete {ss.%player%.has}
+							delete {ss.%arg-1%.back}
+							send "{@p} &7Der Spieler &b%arg-1% &7ist nun nicht mehr eingefroren."
+							send arg-1 title "&a&l⚠" with subtitle "&7Du bist nicht mehr eingefroren!" for 3 seconds
+							stop
+						else:
+							if player has permission "rang.admin":
+								delete {ss.%arg-1%}
+								set {_p} to {ss.%arg-1%.by}
+								delete {ss.%arg-1%.by}
+								delete {ss.%{_p}%.has}
+								delete {ss.%arg-1%.back}
+								send "{@p} &7Der Spieler &b%arg-1% &7ist nun nicht mehr eingefroren."
+								send arg-1 title "&a&l⚠" with subtitle "&7Du bist nicht mehr eingefroren!" for 3 seconds
+								stop
+							else:
+								send "{@p} &7Du hast diesen Spieler nicht eingefroren."
+								stop
+								
+on any movement:
+	if {ss.%player%} is set:
+		set {_loc} to location of player
+		if {_loc} is not {ss.%player%.back}:
+			teleport player to {ss.%player%.back}
+			
+on quit:
+	if {ss.%player%} is set:
+		set {_p} to {ss.%player%.by}
+		send "{@p} &4&lACHTUNG" to {_p}
+		send "{@p} &7Der eingefrorene Spieler &b&l%player% &7hat den Server verlassen!" to {_p}
+		send "{@p} &4&lACHTUNG" to {_p}
+		stop
+	if {ss.%player%.has} is set:
+		set {_p} to {ss.%player%.has}
+		delete {ss.%{_p}%}
+		delete {ss.%{_p}%.by}
+		delete {ss.%{_p}%.back}
+		send {_p} title "&a&l⚠" with subtitle "&7Du bist nicht mehr eingefroren!" for 3 seconds
+		delete {ss.%player%.has}
+				
+command /reply [<text>]:
+	aliases: /r
+	trigger:
+		if arg-1 is not set:
+			send "{@use}reply <Nachricht>"
+			stop
+		if arg-1 is set:
+			if {reply.%player%} is set:
+				send "&b&lMSG &8┃ %{rank.%player%}%%player% &8» %{rank.%{reply.%player%}%}%%{reply.%player%}% &8» &7%arg-1%" to player
+				send "&b&lMSG &8┃ %{rank.%player%}%%player% &8» %{rank.%{reply.%player%}%}%%{reply.%player%}% &8» &7%arg-1%" to {reply.%player%}
+				stop
+				
+on quit:
+	if {reply.%player%} is set:
+		delete {reply.%{reply.%player%}%}
+		delete {reply.%player%}
+				
+on command "spec":
+	if {reply.%player%} is set:
+		if {reply.%player%} don't have permission {@all}:
+			delete {reply.%{reply.%player%}%}
+			delete {reply.%player%}
+on command "spectate":
+	if {reply.%player%} is set:
+		if {reply.%player%} don't have permission {@all}:
+			delete {reply.%{reply.%player%}%}
+			delete {reply.%player%}
+			
+on quit:
+	if player has permission {@all}:
+		set quit message to ""
+		loop all players:
+			if {notify.%loop-player%.teamjl} is set:
+				send "&8•● &5Team &8┃ %{rank.%player%}%%player% &7hat den Server verlassen." to loop-player
+		stop
+		
+on join:
+	if player has permission {@all}:
+		set join message to ""
+		loop all players:
+			if {notify.%loop-player%.teamjl} is set:
+				send "&8•● &5Team &8┃ %{rank.%player%}%%player% &7hat den Server betreten." to loop-player
+		stop
+		
+on chat:
+#	if {mute.%player%} is set:
+#		if {mute.%player%.perma} is not set:
+#			cancel event
+#			send " "
+#			send "{@p} &7Du bist vom &bChat &7gebannt&8."
+#			send "{@p} &7Grund&8: &b%{mute.%player%}%"
+#			send "{@p} &7Dauer: &b%{mute.%player%.time.day}% &7Tag&8/&7e &b%{mute.%player%.time.hour}% &7Stunde&8/&7n &b%{mute.%player%.time.min}% &7Minute&8/&7n"
+#			send " "
+#			stop
+#		else:
+#			cancel event
+#			send " "
+#			send "{@p} &7Du bist vom &bChat &7gebannt&8."
+#			send "{@p} &7Grund&8: &b%{mute.%player%}%"
+#			send "{@p} &7Dauer: &bPermanent"
+#			send " "
+#			stop
+	if {mute.%player's uuid%} is not set:
+		cancel event
+		wait a tick
+		if {beta} is set:
+			if {beta.%player%.join} is set:
+				if {nick.%player%} is true:
+					if {mlg.%player%.feind} is not set:
+						loop all players:
+							if loop-player is in world of player:
+								send "&7Spieler &8┃ &7%{nick.name.%player%}% &8» &7%message%" to loop-player
+						stop
+				else:
+					if {mlg.%player%.feind} is not set:
+						loop all players:
+							if loop-player is in world of player:
+								send "%{rang.%player%}% &8┃ &7%player% &8» &7%message%" to loop-player
+						stop
+			else:
+				if player has permission {@all}:
+					if {nick.%player%} is true:
+						if {mlg.%player%.feind} is not set:
+							loop all players:
+								if loop-player is in world of player:
+									send "&7Spieler &8┃ &7%{nick.name.%player%}% &8» &7%message%" to loop-player
+							stop
+					else:
+						if {mlg.%player%.feind} is not set:
+							loop all players:
+								if loop-player is in world of player:
+									send "%{rang.%player%}% &8┃ &7%player% &8» &7%message%" to loop-player
+							stop
+		else:
+			if {nick.%player%} is true:
+				if {mlg.%player%.feind} is not set:
+					loop all players:
+						if loop-player is in world of player:
+							send "&7Spieler &8┃ &7%{nick.name.%player%}% &8» &7%message%" to loop-player
+					stop
+			else:
+				if {mlg.%player%.feind} is not set:
+					loop all players:
+						if loop-player is in world of player:
+							send "%{rang.%player%}% &8┃ &7%player% &8» &7%message%" to loop-player
+		stop
+			
+#command /ban [<offlineplayer>] [<text>]:
+#	trigger:
+#		if player has permission {@srsup}:
+#			if arg-1 is set:
+#				if arg-2 is set:
+#					if {ban.%arg-1%} is set:
+#						send "{@p} &7Dieser Spieler ist bereits &bgebannt&8."
+#						stop
+#					else:
+#						if arg-1's uuid is not "8f0729d3-ce80-48ce-804b-1710dc91c34f" or "3e41fa74-fccb-4d2d-955a-9bf8b806556a":
+#							set {ban.%arg-1%} to "%uncolored arg-2%"
+#							set {ban.%arg-1%.perma} to true
+#							add 1 to {ban.%arg-1%.points}
+#							add 1 to {ban.%player%.team}
+#							set {ban.%arg-1%.by} to player
+#							add "{@p} &cBAN &8┃ &7Von &a%player% &8┃ &c%arg-2% &8┃ &ePermanent" to {history.%arg-1%::*}
+#							loop all players:
+#								if {notify.%loop-player%.ban} is set:
+#									send "{@bp} &a%player% &7hat &c%arg-1% &7gebannt." to loop-player
+#									send "{@bp} &7Grund &8» &c%{ban.%arg-1%}%" to loop-player
+#									send "{@bp} &7Dauer &8» &cPermanent" to loop-player
+#							kick arg-1 due to "%nl%&7Du bist von &bPixelGame &7gebannt&8.%nl%&7Grund&8: &b%{ban.%arg-1%}%%nl%&7Dauer: &bPermanent%nl%"
+#							stop
+#				else:
+#					send "{@use}ban <Spieler> <Grund>"
+#					stop
+#			else:
+#				send "{@use}ban <Spieler> <Grund>"
+#				stop
+#		else:
+#			send "{@perms}"
+#			stop
+			
+command /hub:
+	aliases: /l, /lobby, /hubschrauber
+	trigger:
+		if player is in world "Lobby":
+			send "{@p} &7Du befindest dich bereits in der Lobby."
+			stop
+		else:
+			send player title "&8» &7ServerManager" with subtitle "&aVerbinde..." for 1 second
+			teleport player to {lobby.spawn}
+	
+#command /kick [<offlineplayer>] [<text>]:
+#	trigger:
+#		if player has permission {@sup}:
+#			if arg-1 is set:
+#				if arg-2 is set:
+#					if arg-1 is offline:
+#						send "{@p} &7Dieser Spieler ist offline."
+#						stop
+#					else:
+#						if arg-1's uuid is not "8f0729d3-ce80-48ce-804b-1710dc91c34f" or "3e41fa74-fccb-4d2d-955a-9bf8b806556a":
+#							kick arg-1 due to "%nl%&7Du wurdest von &bPixelGame &7gekickt&8.%nl%&7Grund&8: &b%arg-2%%nl%"
+#							add "{@p} &cKICK &8┃ &7Von &a%player% &8┃ &c%arg-2%" to {history.%arg-1%::*}
+#							loop all players:
+#								if {notify.%loop-player%.kick} is set:
+#									send "{@bp} &a%player% &7hat &c%arg-1% &7gekickt." to loop-player
+#									send "{@bp} &7Grund &8» &c%arg-2%" to loop-player
+#							stop
+#				else:
+#					send "{@use}kick <Spieler> <Grund>"
+#					stop
+#			else:
+#				send "{@use}kick <Spieler> <Grund>"
+#				stop
+#		else:
+#			send "{@perms}"
+#			stop
+			
+command /history [<offlineplayer>] [<text>]:
+	trigger:
+		if player has permission {@sup}:
+			if arg-1 is not set:
+				send "{@use}history <Spieler>"
+				stop
+			if arg-1 is set:
+				send "{@p} &7History von &b%arg-1%&8:"
+				set {_count} to 0
+				loop {history.%arg-1%::*}:
+					send "%loop-value%"
+					add 1 to {_count}
+				send "{@p} &8(&e%{_count}% &7Einträge&8)"
+				stop
+		else:
+			send "{@perms}"
+			stop
+			
+command /alist [<text>]:
+	trigger:
+		if player has permission "rang.admin":
+			send "{@p} &7Alle Spieler:"
+			loop all players:
+				set {_w} to world of loop-player
+				add "&b%loop-player% &8| &b%{_w}%" to {_allp::*}
+			loop {_allp::*}:
+				send "{@p} %loop-value%"
+			stop
+			
+command /find [<offlineplayer>]:
+	trigger:
+		if player has permission {@sup}:
+			if arg-1 is not set:
+				send "{@use}find <Spieler>"
+				stop
+			if arg-1 is set:
+				if arg-1 is online:
+					send "{@p} %{rank.%arg-1%}%%arg-1% &8» &7%world of arg-1%"
+					stop
+				else:
+					send "{@p} &7Dieser Spieler ist offline."
+					stop
+			
+on join:
+	set tab header to "&7 %nl% &b&lPixelGame.eu %nl% &7 &7 &7 &7 &eLegends &7come and &cgo&7!%nl% &7" and footer to "&7%nl% &7Du siehst einen Hacker? &c/report %nl% &7Unsere Discord-ID: &9z6v8GGc%nl%&7 Unsere TeamSpeak-IP: &bts.PixelGame.eu %nl%" for player
+			
+#command /mute [<offlineplayer>] [<text>]:
+#	trigger:
+#		if player has permission {@srsup}:
+#			if arg-1 is set:
+#				if arg-2 is set:
+#					if {mute.%arg-1%} is set:
+#						send "{@p} &7Dieser Spieler ist bereits &bgemuted&8."
+#						stop
+#					else:
+#						if arg-1's uuid is not "8f0729d3-ce80-48ce-804b-1710dc91c34f" or "3e41fa74-fccb-4d2d-955a-9bf8b806556a":
+#							set {mute.%arg-1%} to "%uncolored arg-2%"
+#							set {mute.%arg-1%.perma} to true
+#							add 1 to {mute.%player%.team}
+#							set {mute.%arg-1%.by} to player
+#							add 1 to {mute.%arg-1%.points}
+#							add "{@p} &cMUTE &8┃ &7Von &a%player% &8┃ &c%arg-2% &8┃ &ePermanent" to {history.%arg-1%::*}
+#							loop all players:
+#								if {notify.%loop-player%.mute} is set:
+#									send "{@bp} &a%player% &7hat &c%arg-1% &7gemuted." to loop-player
+#									send "{@bp} &7Grund &8» &c%{mute.%arg-1%}%" to loop-player
+#									send "{@bp} &7Dauer &8» &cPermanent" to loop-player
+#							send " " to arg-1
+#							send "{@p} &7Du wurdest vom &bChat &7gebannt&8.%nl%{@p} &7Grund&8: &b%{mute.%arg-1%}%%nl%{@p} &7Dauer&8: &bPermanent" to arg-1
+#							send " " to arg-1
+#							stop
+#				else:
+#					send "{@use}mute <Spieler> <Grund>"
+#					stop
+#			else:
+#				send "{@use}mute <Spieler> <Grund>"
+#				stop
+#		else:
+#			send "{@perms}"
+#			stop
+			
+command /smsg [<text>] [<text>]:
+	trigger:
+		if player has permission {@sup}:
+			if arg-1 is not set:
+				send "{@p} &8/&bsmsg &8[&bSpieler&8] [&bNachricht&8] &8┃ &7Sendet einem Spieler eine Nachricht vom Support."
+				if player has permission {@mod}:
+					send "{@p} &8/&bsmsg &8[&b@g&8] [&bNachricht&8] &8┃ &7Sendet dem gesamten Server ein Nachricht vom Support."
+				if player has permission {@srsup}:
+					send "{@p} &8/&bsmsg &8[&b@l&8] [&bNachricht&8] &8┃ &7Sendet allen Spielern im selben Spielmodus eine Nachricht vom Support."
+				stop
+			if arg-2 is not set:
+				send "{@p} &8/&bsmsg &8[&bSpieler&8] [&bNachricht&8] &8┃ &7Sendet einem Spieler eine Nachricht vom Support."
+				if player has permission {@mod}:
+					send "{@p} &8/&bsmsg &8[&b@g&8] [&bNachricht&8] &8┃ &7Sendet dem gesamten Server ein Nachricht vom Support."
+				if player has permission {@srsup}:
+					send "{@p} &8/&bsmsg &8[&b@l&8] [&bNachricht&8] &8┃ &7Sendet allen Spielern im selben Spielmodus eine Nachricht vom Support."
+				stop
+			if arg-1 is not "@g" or "@l":
+				set {_p} to arg-1 parsed as offline player
+				if {_p} is offline:
+					send "{@p} &7Dieser Spieler ist offline."
+					stop
+				else:
+					send "{@p} &7Folgende Nachricht wurde an &b%arg-1% &7gesendet&8:"
+					send " &8» &7%arg-2%"
+					send "{@p} &7Dir wurde eine Nachricht vom Support gesendet&8:" to {_p}
+					send " &8» &7%arg-2%" to {_p}
+					send " &8» &7Von &b%player%" to {_p}
+					stop
+			if arg-1 is "@g":
+				if player has permission {@mod}:
+					loop all players:
+						send "{@p} &7Es wurde eine Nachricht vom Support gesendet&8:" to loop-player
+						send " &8» &7%arg-2%" to loop-player
+						send " &8» &7Von &b%player%" to loop-player
+					send "{@p} &7Folgende Nachricht wurde gesendet&8:" to player
+					send " &8» &7%arg-2%" to player
+					stop
+			if arg-1 is "@l":
+				if player has permission {@mod}:
+					loop all players:
+						if loop-player is in world of player:
+							send "{@p} &7Es wurde eine Nachricht vom Support gesendet&8:" to loop-player
+							send " &8» &7%arg-2%" to loop-player
+							send " &8» &7Von &b%player%" to loop-player
+					send "{@p} &7Folgende Nachricht wurde gesendet&8:" to player
+					send " &8» &7%arg-2%" to player
+					stop					
+				
+			
+
+			
+on join:
+	set {lastip.%player%} to ip of player
+	set {lastuuid.%player%} to uuid of player
+				
+every tick:
+	loop all players:
+		if {ban.%loop-player%.points} is not set:
+			set {ban.%loop-player%.points} to 0
+		if {mute.%loop-player%.points} is not set:
+			set {mute.%loop-player%.points} to 0
+		if {ban.%loop-player%.team} is not set:
+			set {ban.%loop-player%.team} to 0
+		if {mute.%loop-player%.team} is not set:
+			set {mute.%loop-player%.team} to 0
+			
+command /help [<text>]:
+	trigger:
+		if arg-1 is not set:
+			if player don't have permission {@sup}:
+				send "&8&m-----------------&8[ &b&lHilfe &8┃ &b&l1 &8]&m-----------------"
+				send " &8 &8 &8 &8 &8» &8/&breport &8┃ &7Melde einen Regelbrecher"
+				send " &8 &8 &8 &8 &8» &8/&bchatlog &8┃ &7Erstelle einen Chatbeweis"
+				send " &8 &8 &8 &8 &8» &8/&brules &8┃ &7Zeige den Link zum Regelwerk"
+				send " &8 &8 &8 &8 &8» &8/&bhub &8┃ &7Verbinde dich zur Lobby"
+				send " &8 &8 &8 &8 &8» &8/&bts &8┃ &7Zeige unsere TS-Adresse"
+				send " &8 &8 &8 &8 &8» &8/&bhelp &8┃ &7Zeige diese Hilfeseite"
+				send " &8 &8 &8 &8 &8» &8/&bjoinme &8┃ &7Zeige die Hilfe zum JoinMe-System"
+				send " &8 &8 &8 &8 &8» &8/&bcoins &8┃ &7Zeige deine Coins"
+				send " &8 &8 &8 &8 &8» &8/&bping &8┃ &7Zeige deinen Ping"
+				send "&8&m-----------------&8[ &b&lHilfe &8┃ &b&l1 &8]&m-----------------"
+				stop
+			else:
+				send "&8&m-----------------&8[ &b&lTeamhilfe &8┃ &b&l1 &8]&m-----------------"
+				send " &8 &8 &8 &8 &8» &8/&bchatlog &8┃ &7Zeige die Hilfe zum ChatLog-System"
+				send " &8 &8 &8 &8 &8» &8/&btempban &8┃ &7Banne einen Spieler temporär"
+				send " &8 &8 &8 &8 &8» &8/&bban &8┃ &7Banne einen Spieler permanent"
+				send " &8 &8 &8 &8 &8» &8/&btempmute &8┃ &7Mute einen Spieler temporär"
+				send " &8 &8 &8 &8 &8» &8/&bmute &8┃ &7Mute einen Spieler permanent"
+				send " &8 &8 &8 &8 &8» &8/&bunban &8┃ &7Entbanne einen Spieler"
+				send " &8 &8 &8 &8 &8» &8/&bunmute &8┃ &7Entmute einen Spieler"
+				send " &8 &8 &8 &8 &8» &8/&bcheck &8┃ &7Zeige Informationen zu einem Spieler"
+				send " &8 &8 &8 &8 &8» &8/&bnotify &8┃ &7Aktiviere und Deaktiviere Team-Benachrichtigungen"
+				send " &8 &8 &8 &8 &8» &8/&bteamchat &8┃ &7Schreibe im TeamChat"
+				send "&8&m-----------------&8[ &b&lTeamhilfe &8┃ &b&l1 &8]&m-----------------"
+		if arg-1 is set:
+			if player has permission {@sup}:
+				if arg-1 is "user":
+					send "&8&m-----------------&8[ &b&lHilfe &8┃ &b&l1 &8]&m-----------------"
+					send " &8 &8 &8 &8 &8» &8/&breport &8┃ &7Melde einen Regelbrecher"
+					send " &8 &8 &8 &8 &8» &8/&bchatlog &8┃ &7Erstelle einen Chatbeweis"
+					send " &8 &8 &8 &8 &8» &8/&brules &8┃ &7Zeige den Link zum Regelwerk"
+					send " &8 &8 &8 &8 &8» &8/&bhub &8┃ &7Verbinde dich zur Lobby"
+					send " &8 &8 &8 &8 &8» &8/&bts &8┃ &7Zeige unsere TS-Adresse"
+					send " &8 &8 &8 &8 &8» &8/&bhelp &8┃ &7Zeige diese Hilfeseite"
+					send " &8 &8 &8 &8 &8» &8/&bjoinme &8┃ &7Zeige die Hilfe zum JoinMe-System"
+					send " &8 &8 &8 &8 &8» &8/&bcoins &8┃ &7Zeige deine Coins"
+					send " &8 &8 &8 &8 &8» &8/&bping &8┃ &7Zeige deinen Ping"
+					send "&8&m-----------------&8[ &b&lHilfe &8┃ &b&l1 &8]&m-----------------"
+			
+			
+command /ts:
+	aliases: /teamspeak, /ts3, /teamspeak3, /voice
+	trigger:
+		send " "
+		send "{@p} &7Unser TeamSpeak&8: &bts&8.&bPixelGame&8.&beu"
+		send " "
+		stop
+		
+on command "tempmute":
+	if player has permission "rang.admin":
+		send "&cEs wird NICHT empfohlen, diesen Befehl zu Verwenden!"
+		send "&4(&cBUGGY&4)"
+on command "tempban":
+	if player has permission "rang.admin":
+		send "&cEs wird NICHT empfohlen, diesen Befehl zu Verwenden!"
+		send "&4(&cBUGGY&4)"
+				
+command /tempmute [<offlineplayer>] [<text>] [<text>]:
+	trigger:
+		if player has permission "rang.admin":
+			if arg-1 is set:
+				if arg-2 is set:
+					if arg-3 is set:
+						set {_t} to "%arg-2%"
+						if {_t} contains "d":
+							replace all "d" with "" in {_t}
+							replace all "h" with "" in {_t}
+							replace all "m" with "" in {_t}
+							replace all "s" with "" in {_t}
+							set {_days} to {_t} parsed as number
+							set {_hours} to 0
+							set {_minutes} to 0
+							set {_seconds} to 0
+						else:
+							if {_t} contains "h":
+								replace all "d" with "" in {_t}
+								replace all "h" with "" in {_t}
+								replace all "m" with "" in {_t}
+								replace all "s" with "" in {_t}
+								set {_days} to 0
+								set {_hours} to {_t} parsed as number
+								set {_minutes} to 0
+								set {_seconds} to 0
+							else:
+								if {_t} contains "m":
+									replace all "d" with "" in {_t}
+									replace all "h" with "" in {_t}
+									replace all "m" with "" in {_t}
+									replace all "s" with "" in {_t}
+									set {_days} to 0
+									set {_hours} to 0
+									set {_minutes} to {_t} parsed as number
+									set {_seconds} to 0
+								else:
+									if {_t} contains "s":
+										replace all "d" with "" in {_t}
+										replace all "h" with "" in {_t}
+										replace all "m" with "" in {_t}
+										replace all "s" with "" in {_t}
+										set {_days} to 0
+										set {_hours} to 0
+										set {_minutes} to 0
+										set {_seconds} to {_t} parsed as number
+						if {_days} is a number:
+							if {_hours} is a number:
+								if {_minutes} is a number:
+									if {_seconds} is a number:
+										if {_days} is smaller than 0:
+											stop
+										if {_hours} is smaller than 0:
+											stop
+										if {_minutes} is smaller than 0:
+											stop
+										if {_seconds} is smaller than 0:
+											stop
+										if {_days} is bigger than 1000:
+											stop
+										if {_hours} is bigger than 24:
+											stop
+										if {_minutes} is bigger than 60:
+											stop
+										if {_seconds} is bigger than 60:
+											stop
+										if {mute.%arg-1%} is set:
+											send "{@p} &7Dieser Spieler ist bereits &bgemuted&8."
+											stop
+										else:
+											if arg-1's uuid is not "8f0729d3-ce80-48ce-804b-1710dc91c34f" or "3e41fa74-fccb-4d2d-955a-9bf8b806556a":
+												add "%arg-1%" to {mutelist::*}
+												add 1 to {mute.%player%.team}
+												set {mute.%arg-1%.time.day} to {_days}
+												set {mute.%arg-1%.time.hour} to {_hours}
+												set {mute.%arg-1%.time.min} to {_minutes}
+												add "{@p} &cMUTE &8┃ &7Von &a%player% &8┃ &c%arg-3% &8┃ &e%{mute.%arg-1%.time.day}%&7D &e%{mute.%arg-1%.time.hour}%&7H &e%{mute.%arg-1%.time.min}%&7M" to {history.%arg-1%::*}
+												set {mute.%arg-1%.time.sec} to {_seconds}
+												add 1 to {mute.%arg-1%.points}
+												set {mute.%arg-1%} to "%uncolored arg-3%"
+												set {mute.%arg-1%.by} to player
+												set {_by} to player
+												loop all players:
+													if {notify.%loop-player%.mute} is set:
+														send "{@bp} &a%player% &7hat &c%arg-1% &7gemuted." to loop-player
+														send "{@bp} &7Grund &8» &c%{mute.%arg-1%}%" to loop-player
+														send "{@bp} &7Dauer &8» &c%{_days}% &7Tag&8/&7e &c%{_hours}% &7Stunde&8/&7n &c%{_minutes}% &7Minute&8/&7n" to loop-player
+												send " " to arg-1
+												send "{@p} &7Du wurdest vom &bChat &7gebannt&8.%nl%{@p} &7Grund&8: &b%{mute.%arg-1%}%%nl%{@p} &7Dauer&8: &b%{_days}% &7Tage &b%{_hours}% &7Stunden &b%{_minutes}% &7Minuten" to arg-1
+												send " " to arg-1
+												stop
+					else:
+						send "{@use}tempmute <Spieler> <Dauer> <Grund>"
+						stop
+				else:
+					send "{@use}tempmute <Spieler> <Dauer> <Grund>"
+					stop
+			else:
+				send "{@use}tempmute <Spieler> <Dauer> <Grund>"
+				stop
+		else:
+			send "{@perms}"
+			stop
+
+on join:
+	if {spec.%player%} is set:
+		delete {spec.%player%}
+	if {vanish.%player%} is not set:
+		set {vanish.%player%} to false
+		
+on weather change:
+	cancel event
+		
+on join:
+	if player don't have permission {@all}:
+		loop all players:
+			if {spec.%loop-player%} is set:
+				hide the loop-player from the player
+
+on world change:
+	wait 3 ticks
+	if {spec.%player%} is set:
+		set gamemode of player to spectator
+		loop all players:
+			if loop-player don't have permission {@all}:
+				hide the player from the loop-player
+
+command /spectate [<text>]:
+	aliases: /spec
+	trigger:
+		if player has permission {@sup}:
+			if {spec.%player%} is not set:
+				set {spec.%player%} to true
+				set gamemode of player to spectator
+				loop all players:
+					if loop-player don't have permission {@all}:
+						hide the player from the loop-player
+				send "{@p} &7Du beobachtest nun."
+				stop
+			else:
+				delete {spec.%player%}
+				set gamemode of player to survival
+				if player is in world "BuildFFA":
+					teleport player to {gamewarp.buildffa}
+				if player is in world "Bridge" or "New_Lobby":
+					teleport player to {lobby.spawn}
+				reveal the player from all players
+				send "{@p} &7Du beobachtest nun nicht mehr."
+				stop
+
+command /rules:
+	aliases: /regeln, /guidelines, /richtlinien
+	trigger:
+		send " "
+		send "{@p} &7Richtlinien&8: &bhttp://guidelines.PixelGame.eu"
+		send " "
+											
+			
+command /tempban [<offlineplayer>] [<text>] [<text>]:
+	trigger:
+		if player has permission "rang.admin":
+			if arg-1 is set:
+				if arg-2 is set:
+					if arg-3 is set:
+						set {_t} to "%arg-2%"
+						if {_t} contains "d":
+							replace all "d" with "" in {_t}
+							replace all "h" with "" in {_t}
+							replace all "m" with "" in {_t}
+							replace all "s" with "" in {_t}
+							set {_days} to {_t} parsed as number
+							set {_hours} to 0
+							set {_minutes} to 0
+							set {_seconds} to 0
+						else:
+							if {_t} contains "h":
+								replace all "d" with "" in {_t}
+								replace all "h" with "" in {_t}
+								replace all "m" with "" in {_t}
+								replace all "s" with "" in {_t}
+								set {_days} to 0
+								set {_hours} to {_t} parsed as number
+								set {_minutes} to 0
+								set {_seconds} to 0
+							else:
+								if {_t} contains "m":
+									replace all "d" with "" in {_t}
+									replace all "h" with "" in {_t}
+									replace all "m" with "" in {_t}
+									replace all "s" with "" in {_t}
+									set {_days} to 0
+									set {_hours} to 0
+									set {_minutes} to {_t} parsed as number
+									set {_seconds} to 0
+								else:
+									if {_t} contains "s":
+										replace all "d" with "" in {_t}
+										replace all "h" with "" in {_t}
+										replace all "m" with "" in {_t}
+										replace all "s" with "" in {_t}
+										set {_days} to 0
+										set {_hours} to 0
+										set {_minutes} to 0
+										set {_seconds} to {_t} parsed as number
+						if {_days} is a number:
+							if {_hours} is a number:
+								if {_minutes} is a number:
+									if {_seconds} is a number:
+										if {_days} is smaller than 0:
+											stop
+										if {_hours} is smaller than 0:
+											stop
+										if {_minutes} is smaller than 0:
+											stop
+										if {_seconds} is smaller than 0:
+											stop
+										if {_days} is bigger than 1000:
+											stop
+										if {_hours} is bigger than 24:
+											stop
+										if {_minutes} is bigger than 60:
+											stop
+										if {_seconds} is bigger than 60:
+											stop
+										if {ban.%arg-1%} is set:
+											send "{@p} &7Dieser Spieler ist bereits &bgebannt&8."
+											stop
+										else:
+											if arg-1's uuid is not "8f0729d3-ce80-48ce-804b-1710dc91c34f" or "3e41fa74-fccb-4d2d-955a-9bf8b806556a":
+												add "%arg-1%" to {banlist::*}
+												set {ban.%arg-1%.time.day} to {_days}
+												set {ban.%arg-1%.time.hour} to {_hours}
+												set {ban.%arg-1%.time.min} to {_minutes}
+												set {ban.%arg-1%.time.sec} to {_seconds}
+												add "{@p} &cBAN &8┃ &7Von &a%player% &8┃ &c%arg-3% &8┃ &e%{ban.%arg-1%.time.day}%&7D &e%{ban.%arg-1%.time.hour}%&7H &e%{ban.%arg-1%.time.min}%&7M" to {history.%arg-1%::*}
+												add 1 to {ban.%arg-1%.points}
+												add 1 to {ban.%player%.team}
+												set {ban.%arg-1%.by} to player
+												set {ban.%arg-1%} to "%uncolored arg-3%"
+												set {_by} to player
+												loop all players:
+													if {notify.%loop-player%.ban} is set:
+														send "{@bp} &a%player% &7hat &c%arg-1% &7gebannt." to loop-player
+														send "{@bp} &7Grund &8» &c%{ban.%arg-1%}%" to loop-player
+														send "{@bp} &7Dauer &8» &c%{_days}% &7Tag&8/&7e &c%{_hours}% &7Stunde&8/&7n &c%{_minutes}% &7Minute&8/&7n" to loop-player
+												kick arg-1 due to "%nl%&7Du wurdest von &bPixelGame &7gebannt&8.%nl%&7Grund&8: &b%uncolored arg-3%%nl%&7Dauer&8: &b%{_days}% &7Tag&8/&7e &b%{_hours}% &7Stunde&8/&7n &b%{_minutes}% &7Minute&8/&7n%nl%"
+												stop
+					else:
+						send "{@use}tempban <Spieler> <Dauer> <Grund>"
+						stop
+				else:
+					send "{@use}tempban <Spieler> <Dauer> <Grund>"
+					stop
+			else:
+				send "{@use}tempban <Spieler> <Dauer> <Grund>"
+				stop
+		else:
+			send "{@perms}"
+			stop
+			
+every second:
+	loop {banlist::*}:
+		if {ban.%loop-value%.perma} is not set:
+			if {ban.%loop-value%.time.sec} is bigger than 0:
+				remove 1 from {ban.%loop-value%.time.sec}
+			else:
+				if {ban.%loop-value%.time.min} is bigger than 0:
+					remove 1 from {ban.%loop-value%.time.min}
+					add 59 to {ban.%loop-value%.time.sec}
+				else:
+					if {ban.%loop-value%.time.hour} is bigger than 0:
+						remove 1 from {ban.%loop-value%.time.hour}
+						add 59 to {ban.%loop-value%.time.min}
+						add 59 to {ban.%loop-value%.time.sec}
+					else:
+						if {ban.%loop-value%.time.day} is bigger than 0:
+							remove 1 from {ban.%loop-value%.time.day}
+							add 23 to {ban.%loop-value%.time.hour}
+							add 59 to {ban.%loop-value%.time.min}
+							add 59 to {ban.%loop-value%.time.sec}
+			if {ban.%loop-value%.time.day} is smaller than 1:
+				if {ban.%loop-value%.time.hour} is smaller than 1:
+					if {ban.%loop-value%.time.min} is smaller than 1:
+						if {ban.%loop-value%.time.sec} is smaller than 1:
+							remove "%loop-value%" from {banlist::*}
+							delete {ban.%loop-value%}
+							delete {ban.%loop-value%.perma}
+							stop
+							
+every second:
+	loop {mutelist::*}:
+		if {mute.%loop-value%.perma} is not set:
+			if {mute.%loop-value%.time.sec} is bigger than 0:
+				remove 1 from {mute.%loop-value%.time.sec}
+			else:
+				if {mute.%loop-value%.time.min} is bigger than 0:
+					remove 1 from {mute.%loop-value%.time.min}
+					add 59 to {mute.%loop-value%.time.sec}
+				else:
+					if {mute.%loop-value%.time.hour} is bigger than 0:
+						remove 1 from {mute.%loop-value%.time.hour}
+						add 59 to {mute.%loop-value%.time.min}
+						add 59 to {mute.%loop-value%.time.sec}
+					else:
+						if {mute.%loop-value%.time.day} is bigger than 0:
+							remove 1 from {mute.%loop-value%.time.day}
+							add 23 to {mute.%loop-value%.time.hour}
+							add 59 to {mute.%loop-value%.time.min}
+							add 59 to {mute.%loop-value%.time.sec}
+			if {mute.%loop-value%.time.day} is smaller than 1:
+				if {mute.%loop-value%.time.hour} is smaller than 1:
+					if {mute.%loop-value%.time.min} is smaller than 1:
+						if {mute.%loop-value%.time.sec} is smaller than 1:
+							remove "%loop-value%" from {mutelist::*}
+							delete {mute.%loop-value%}
+							send "{@p} &7Du wurdest vom Chat entbannt." to loop-value parsed as offline player
+							delete {mute.%loop-value%.perma}
+							stop
+				
+every minute:
+	loop all players:
+		add 1 to {playtime.%loop-player%.min}
+		if {playtime.%loop-player%.min} is 60:
+			set {playtime.%loop-player%.min} to 0
+			add 1 to {playtime.%loop-player%.hour}
+			
+every second:
+	loop all players:
+		if {playtime.%loop-player%.min} is not set:
+			set {playtime.%loop-player%.min} to 0
+		if {playtime.%loop-player%.hour} is not set:
+			set {playtime.%loop-player%.hour} to 0
+			
+command /playtime [<text>]:
+	aliases: /pt
+	trigger:
+		send " "
+		send "{@p} &7Deine Onlinezeit&8: &b%{playtime.%player%.hour}% &7Stunden &b%{playtime.%player%.min}% &7Minuten"
+		send " "
+		stop
+				
+command /notify [<text>]:
+	trigger:
+		if player has permission {@all}:
+			if {notify.%player%} is not set:
+				set {notify.%player%} to true
+				set {notify.%player%.ban} to true
+				set {notify.%player%.teamjl} to true
+				set {notify.%player%.mute} to true
+				set {notify.%player%.kick} to true
+				set {notify.%player%.unpun} to true
+				set {notify.%player%.report} to true
+				send "{@p} &7Status im Notify-System&8: &aLOGGED IN"
+				stop
+			else:
+				delete {notify.%player%} 
+				delete {notify.%player%.ban} 
+				delete {notify.%player%.teamjl} 
+				delete {notify.%player%.mute} 
+				delete {notify.%player%.kick} 
+				delete {notify.%player%.unpun} 
+				delete {notify.%player%.report}
+				send "{@p} &7Status im Notify-System&8: &cLOGGED OUT"
+				stop
+
+on inventory click:
+	if inventory name of current inventory of player is "&b&lNachrichten":
+		if name of clicked item contains "Kick-":
+			cancel event
+			if {notify.%player%.kick} is not set:
+				set {notify.%player%.kick} to true
+				wait 0.5 ticks
+				set slot 6 of player's current inventory to iron axe named "&bKick-Nachrichten" with lore "&aAktiviert"
+				stop
+			else:
+				delete {notify.%player%.kick}
+				wait 0.5 ticks
+				set slot 6 of player's current inventory to iron axe named "&bKick-Nachrichten" with lore "&cDeaktiviert"
+				stop
+		if name of clicked item contains "Unban/Unmute":
+			cancel event
+			if {notify.%player%.unpun} is not set:
+				set {notify.%player%.unpun} to true
+				wait 0.5 ticks
+				set slot 7 of player's current inventory to light green dye named "&bUnban/Unmute-Nachrichten" with lore "&aAktiviert"
+				stop
+			else:
+				delete {notify.%player%.unpun}
+				wait 0.5 ticks
+				set slot 7 of player's current inventory to light green dye named "&bUnban/Unmute-Nachrichten" with lore "&cDeaktiviert"
+				stop
+		if name of clicked item contains "Report-":
+			cancel event
+			if {notify.%player%.report} is not set:
+				set {notify.%player%.report} to true
+				wait 0.5 ticks
+				set slot 8 of player's current inventory to golden axe named "&bReport-Nachrichten" with lore "&aAktiviert"
+				stop
+			else:
+				delete {notify.%player%.report}
+				wait 0.5 ticks
+				set slot 8 of player's current inventory to golden axe named "&bReport-Nachrichten" with lore "&cDeaktiviert"
+				stop
+		if name of clicked item contains "Bann-":
+			cancel event
+			if {notify.%player%.ban} is not set:
+				set {notify.%player%.ban} to true
+				wait 0.5 ticks
+				set slot 0 of player's current inventory to diamond axe named "&bBann-Nachrichten" with lore "&aAktiviert"
+				stop
+			else:
+				delete {notify.%player%.ban}
+				wait 0.5 ticks
+				set slot 0 of player's current inventory to diamond axe named "&bBann-Nachrichten" with lore "&cDeaktiviert"
+				stop
+		if name of clicked item contains "Join/Leave":
+			cancel event
+			if {notify.%player%.teamjl} is not set:
+				set {notify.%player%.teamjl} to true
+				wait 0.5 ticks
+				set slot 1 of player's current inventory to paper named "&bJoin/Leave-Nachrichten" with lore "&aAktiviert"
+				stop
+			else:
+				delete {notify.%player%.teamjl}
+				wait 0.5 ticks
+				set slot 1 of player's current inventory to paper named "&bJoin/Leave-Nachrichten" with lore "&cDeaktiviert"
+				stop
+		if name of clicked item contains "Mute-":
+			cancel event
+			if {notify.%player%.mute} is not set:
+				set {notify.%player%.mute} to true
+				wait 0.5 ticks
+				set slot 2 of player's current inventory to book named "&bMute-Nachrichten" with lore "&aAktiviert"
+				stop
+			else:
+				delete {notify.%player%.mute}
+				wait 0.5 ticks
+				set slot 2 of player's current inventory to book named "&bMute-Nachrichten" with lore "&cDeaktiviert"
+				stop
+		if name of clicked item contains "Alle Nachrichten aktivieren":
+			cancel event
+			set {notify.%player%.ban} to true
+			set {notify.%player%.teamjl} to true
+			set {notify.%player%.mute} to true
+			set {notify.%player%.kick} to true
+			set {notify.%player%.unpun} to true
+			set {notify.%player%.report} to true
+			wait 0.5 ticks
+			set slot 8 of player's current inventory to golden axe named "&bReport-Nachrichten" with lore "&aAktiviert"
+			set slot 7 of player's current inventory to diamond axe named "&bUnban/Unmute-Nachrichten" with lore "&aAktiviert"
+			set slot 6 of player's current inventory to iron axe named "&bKick-Nachrichten" with lore "&aAktiviert"
+			set slot 2 of player's current inventory to book named "&bMute-Nachrichten" with lore "&aAktiviert"
+			set slot 1 of player's current inventory to paper named "&bJoin/Leave-Nachrichten" with lore "&aAktiviert"
+			set slot 0 of player's current inventory to diamond axe named "&bBann-Nachrichten" with lore "&aAktiviert"
+		if name of clicked item contains "Alle Nachrichten deaktivieren":
+			cancel event
+			delete {notify.%player%.ban}
+			delete {notify.%player%.teamjl}
+			delete {notify.%player%.mute}
+			delete {notify.%player%.kick}
+			delete {notify.%player%.unpun}
+			delete {notify.%player%.report}
+			wait 0.5 ticks
+			set slot 8 of player's current inventory to golden axe named "&bReport-Nachrichten" with lore "&cDeaktiviert"
+			set slot 7 of player's current inventory to diamond axe named "&bUnban/Unmute-Nachrichten" with lore "&cDeaktiviert"
+			set slot 6 of player's current inventory to iron axe named "&bKick-Nachrichten" with lore "&cDeaktiviert"
+			set slot 2 of player's current inventory to book named "&bMute-Nachrichten" with lore "&cDeaktiviert"
+			set slot 1 of player's current inventory to paper named "&bJoin/Leave-Nachrichten" with lore "&cDeaktiviert"
+			set slot 0 of player's current inventory to diamond axe named "&bBann-Nachrichten" with lore "&cDeaktiviert"
+			stop
+			
+#command /unban [<offlineplayer>]:
+#	trigger:
+#		if player has permission {@srsup}:
+#			if arg-1 is not set:
+#				send "{@use}unban <Spieler>"
+#				stop
+#			if arg-1 is set:
+#				if {ban.%arg-1%} is not set:
+#					send "{@p} &7Dieser Spieler ist nicht &bgebannt&8."
+#					stop
+#				else:
+#					delete {ban.%arg-1%}
+#					remove "%arg-1%" from {banlist::*}
+#					add "{@p} &aUNBAN &8┃ &7Von &a%player%" to {history.%arg-1%::*}
+#					delete {ban.%arg-1%.perma}
+#					loop all players:
+#						if {notify.%loop-player%.unpun} is set:
+#							send "{@bp} &a%player% &7hat &c%arg-1% &7entbannt." to loop-player
+#					stop
+#		else:
+#			send "{@perms}"
+#			stop
+			
+command /broadcast [<text>]:
+	aliases: /bc
+	trigger:
+		if player has permission {@srmod}:
+			if arg-1 is not set:
+				send "{@use}broadcast <Nachricht>"
+				stop
+			if arg-1 is set:
+				broadcast " "
+				broadcast "{@p} &7%colored arg-1%"
+				broadcast " "
+				stop
+		else:
+			send "{@perms}"
+			stop
+			
+command /clearchat [<text>]:
+	aliases: /cc
+	trigger:
+		if player has permission {@sup}:
+			if arg-1 is not set:
+				send "{@use}clearchat <global/g | local/l>"
+				stop
+			if arg-1 is "global" or "g":
+				if player don't have permission {@srsup}:
+					send "{@p} &7Du kannst den globalen Chat erst als &9SrSupporter &7leeren."
+					stop
+				else:
+					loop 500 times:
+						broadcast " "
+					broadcast "{@p} &7Der Chat wurde geleert&8."
+					loop all players:
+						if loop-player has permission {@all}:
+							send "{@p} &7Von&8: &b%player%" to loop-player
+					broadcast " "
+					stop
+			if arg-1 is "local" or "l":
+				loop all players:
+					if loop-player is in world of player:
+						loop 500 times:
+							send " " to loop-player
+						send "{@p} &7Der Chat wurde geleert&8." to loop-player
+						if loop-player has permission {@all}:
+							send "{@p} &7Von&8: &b%player%" to loop-player
+						send " " to loop-player
+						stop
+		else:
+			send "{@perms}"
+			stop
+			
+command /teamchat [<text>]:
+	aliases: /tc
+	trigger:
+		if player has permission {@all}:
+			if arg-1 is not set:
+				send "{@use}teamchat <list/Nachricht>"
+				stop
+			if arg-1 is not "list":
+				loop all players:
+					if {notify.%loop-player%} is set:
+						send "&8•● &5TeamChat &8┃ %{rang.%player%}% &8┃ &7%player% &8» &7%arg-1%" to loop-player
+				stop
+			if arg-1 is "list":
+				loop all players:
+					if loop-player has permission {@all}:
+						add loop-player to {_team.list::*}
+						add 1 to {_team.online}
+				send "{@p} &7Derzeit sind &b%{_team.online}% &7Teammitglieder online&8."
+				loop {_team.list::*}:
+					send " &8» %{rang.%loop-value%}% &8┃ &7%loop-value%"
+				stop
+		else:
+			send "{@perms}"
+			stop
+			
+command /adminchat [<text>]:
+	aliases: /adc
+	trigger:
+		if player has permission "rang.admin":
+			if arg-1 is not set:
+				send "{@use}adminchat <Nachricht>"
+				stop
+			if arg-1 is set:
+				loop all players:
+					if {notify.%loop-player%} is set:
+						if loop-player has permission "rang.admin":
+							send "&8•● &4AdminChat &8┃ %{rang.%player%}% &8● %{rank.%player%}%%player% &8» &7%arg-1%" to loop-player
+				stop
+		else:
+			send "{@perms}"
+			stop
+			
+command /clearhistory [<offlineplayer>]:
+	trigger:
+		if player has permission {@srmod}:
+			if arg-1 is not set:
+				send "{@use}clearhistory <Spieler>"
+				stop
+			else:
+				delete {history.%arg-1%::*}
+				send "{@p} &7Du hast die History von &b%arg-1% &7geleert&8."
+				stop
+		else:
+			send "{@perms}"
+			stop
+			
+command /aunmute [<offlineplayer>]:
+	trigger:
+		if player has permission "rang.admin":
+			if arg-1 is not set:
+				send "{@use}unmute <Spieler>"
+				stop
+			if arg-1 is set:
+				if {mute.%arg-1%} is not set:
+					send "{@p} &7Dieser Spieler ist nicht &bgemuted&8."
+					stop
+				else:
+					delete {mute.%arg-1%}
+					remove "%arg-1%" from {mutelist::*}
+					add "{@p} &aUNMUTE &8┃ &7Von &a%player%" to {history.%arg-1%::*}
+					delete {mute.%arg-1%.perma}
+					loop all players:
+						if {notify.%loop-player%.unpun} is set:
+							send "{@bp} &a%player% &7hat &c%arg-1% &7entmuted." to loop-player
+					stop
+		else:
+			send "{@perms}"
+			stop
